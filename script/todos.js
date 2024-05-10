@@ -1,12 +1,12 @@
 window.onload = function() {
     //Get the Dropdown Menu
     let dropdown = document.getElementById('dropdown-menu');
-    
-    //Call the Fetch the Users Function
-    fetchUsers();
 
-    //Fetch the Data for the Selected User
+     //Add an Event Listener to the Dropdown Menu
+     dropdown.addEventListener('change', fetchUserData);
 
+     //Fetch the Users
+     fetchUsers(dropdown);
         
 }
 
@@ -34,4 +34,19 @@ function fetchUsers(dropdown) {
         });
 });
 
+}
+
+function fetchUserData(event) {
+    //Get the Selected User ID
+    let userId = event.target.value;
+
+    //Get Request to the Todos API (based on the UserID)
+    fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
+        //Convert the response to JSON
+      .then(response => response.json())
+      //Get the data
+      .then(data => {
+        //Display the Data (its a list of dictionaries)
+        console.log(data);
+      })
 }
