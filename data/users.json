@@ -1,4 +1,4 @@
-export const usersArray = [
+[
     {
         "id": 1,
         "name": "Ian Auston",
