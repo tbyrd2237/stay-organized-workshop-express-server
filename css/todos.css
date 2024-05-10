@@ -1,0 +1,9 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between cards as needed */
+  }
+  
+  .card {
+    width: calc(33.33% - 20px); /* Set the width of each card to one-third of the container width */
+  }
