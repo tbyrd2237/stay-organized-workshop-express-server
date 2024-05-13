@@ -1,7 +1,28 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+  /* Media Query for Phones*/
+  @media only screen and (max-width: 768px) {
+    body {
+      font-size: 14px; 
+    }
+    .container {
+      width: 90%;
+      margin-top: 6%;
+      margin-bottom: 2%;
+      padding-top: 4%;
+      padding-right: 4%;
+      padding-left: 4%;
+      padding-bottom: -8%;
+      border: 2px solid #ccc; 
+    }
+    p {
+      text-align: justify; 
+    }
+  }
+  
+  /* Media query for Computers */
+  @media (min-width: 768px) {
+    .container {
+      display: none;
+    }
   }
   
