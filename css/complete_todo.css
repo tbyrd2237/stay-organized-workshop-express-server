@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,4 +11,89 @@
     border-radius: 10px;
     width: 400px;
     background-color: #f9f9f9;
+  } */
+
+
+
+
+/* Media Query for Phones*/
+@media only screen and (max-width: 768px) {
+  .image {
+    display: none;
   }
+  .container {
+    padding-top: 10%;
+  }
+
+}
+
+/* Media query for Computers */
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%; /* Adjusted to a percentage */
+    padding-top: 3%;
+    margin-left: 10%;
+  }
+  
+  .form-box {
+    border: 1px solid #ddd;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    margin-bottom: 5%;
+    width: 90%; /* Adjusted to a percentage */
+    max-width: 600px; /* Added max-width to prevent stretching on larger screens */
+    background-color: #fff; /* Changed background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box-shadow */
+  }
+  
+  .form-box h2 {
+    text-align: center; /* Center-align the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+    color: #333; /* Adjust heading color */
+  }
+  
+  .form-box label {
+    color: #555; /* Adjust label color */
+  }
+  
+  .form-box input[type="text"],
+  .form-box input[type="date"],
+  .form-box select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .form-box select {
+    appearance: none; /* Remove default dropdown arrow */
+  }
+  
+  .form-box button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Adjust button color */
+    color: #fff; /* Adjust button text color */
+    cursor: pointer;
+  }
+  
+  .form-box button[type="submit"]:hover {
+    background-color: #0056b3; /* Adjust button color on hover */
+  }
+  
+  .form-box .form-check {
+    margin-top: 2%; /* Adjust margin top for form check */
+    margin-bottom: 2%; /* Adjust margin bottom for form check */
+  }
+}
+
+  
