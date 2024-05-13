@@ -40,6 +40,9 @@ function fetchUserData(event) {
     //Get the Selected User ID
     let userId = event.target.value;
 
+    let container = document.getElementById('container');
+    container.innerHTML = '';
+
     //Get Request to the Todos API (based on the UserID)
     fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
         //Convert the response to JSON
