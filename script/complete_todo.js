@@ -18,8 +18,9 @@ function fetchTasks(dropdown) {
         .then(response => response.json())
         //Get the data
         .then(data => {
+            const incompleteTodos = data.filter(todo => todo.completed === false);
             //Loop through the data
-           data.forEach((todo) => {
+           incompleteTodos.forEach((todo) => {
             //Create an Option Element
             let option = document.createElement('option');
 
@@ -59,6 +60,7 @@ function submitForm(event) {
         .then(json => {
             console.log("Json: " + json);
             console.log("The Put was Sucessful");
+            window.location.reload();
         })
         .catch(err => {
             console.log(err);
