@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
+const { dir } = require("console");
+const path = require("path");
 
 const app = express();
 
@@ -20,12 +22,41 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Serve static front-end files (HTML, etc.) from "./public"
-// app.use(express.static("public"));
+app.use(express.static("css"));
+
+app.use("/css", express.static(__dirname + "/css"));
+app.use("/script", express.static(__dirname + "/script"));
+app.use('/images', express.static(__dirname + '/images'));
 
 
 ///////////////////////////////////////////////////////////////////////
 //   API ENDPOINTS ////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
+
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "/index.html"));
+});
+
+// Route to serve todos.html
+app.get("/todos", (req, res) => {
+    res.sendFile(path.join(__dirname, "/todos.html"));
+});
+
+// Route to serve newtodo.html
+app.get("/newtodo", (req, res) => {
+    res.sendFile(path.join(__dirname, "/new_todo.html"));
+});
+
+// Route to serve newuser.html
+app.get("/newuser", (req, res) => {
+    res.sendFile(path.join(__dirname, "/new_user.html"));
+});
+
+// Route to serve completetodo.html
+app.get("/completetodo", (req, res) => {
+    res.sendFile(path.join(__dirname, "/complete_todo.html"));
+});
 
 
 // Get all categories 
