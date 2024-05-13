@@ -1,9 +1,77 @@
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Adjust the gap between cards as needed */
+    gap: 2%;
+    padding-left: 30%;
   }
   
-  .card {
+  /* .card {
     width: calc(33.33% - 20px); /* Set the width of each card to one-third of the container width */
+  /* }  */
+
+
+  /* Example styling for card title */
+  .card h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  }
+
+
+  /* Media Query for Phones*/
+  @media only screen and (max-width: 768px) {
+    .image {
+      display: none;
+    }
+
+    .dropdown {
+      width: 90%;
+      padding-left: 15%;
+      padding-top: 3%;
+      padding-bottom: 3%; 
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30%;
+      padding-left: 15%;
+      padding-bottom: 2%;
+    }
+
+    .card {
+      width: 100%; /* Set the width of each card to 100% for mobile */
+      background-color: #fff; /* Add a background color */
+      border-radius: 8px; /* Add rounded corners */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+      padding: 20px; /* Adjust padding as needed */
+      margin-bottom: 20px; /* Add margin bottom to create space between cards */
+    }
+
+  }
+  
+  /* Media query for Computers */
+  @media (min-width: 768px) {
+    .body-container {
+      width: 80%;
+      padding-top: 2%;
+      padding-left: 20%;
+      display: flex; 
+      justify-content: center; 
+    }
+  
+    .dropdown {
+      width: 70%;
+      padding-top: 1%;
+      padding-bottom: 2%; 
+    }
+
+    .card {
+      width: calc(33.33% - 40px); /* Set the width of each card to one-third of the container width */
+      background-color: #fff; /* Add a background color */
+      border-radius: 8px; /* Add rounded corners */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+      padding: 20px; /* Adjust padding as needed */
+    }
+  
   }
