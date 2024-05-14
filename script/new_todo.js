@@ -7,17 +7,18 @@ window.onload = function() {
 
     let descriptionInput = document.getElementById('description-input');
 
+    let submitButton = document.getElementById('submit');
+
+
     //Call the Function to Add the Data to the Name Dropdown
     fetchNames(dropdownName);
 
     //Call the Function to Add the Data to the Category Dropdown
     fetchCategories(dropdownCategory);
 
-    let submitButton = document.getElementById('submit');
-
     //Event Listener for Name Dropdown
-    dropdownName.addEventListener('change', submitForm);
-    dropdownCategory.addEventListener('change', submitForm);
+    // dropdownName.addEventListener('change', submitForm);
+    // dropdownCategory.addEventListener('change', submitForm);
     submitButton.addEventListener('click', submitForm);
 }
 
@@ -96,6 +97,8 @@ function submitForm(event) {
                     .then(response => response.json())
                     .then(json => {
                         console.log("The Post was Successful");
+
+                        document.getElementById('todo-form').reset();
                 });
     }
 
