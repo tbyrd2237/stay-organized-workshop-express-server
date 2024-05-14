@@ -42,7 +42,7 @@
         </div>
       </nav>
     </header>
-    <img class=image src="images/header-image.jpg" alt="Header Image">
+    <img class=image src="images/header-image-final.jpg" alt="Header Image">
     <div class="container">
       <div class="form-box">
     <form>
@@ -53,11 +53,18 @@
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input type="text" value="" class="form-control" id="username" aria-describedby="username">
+        <small id="username-taken" class="form-text text-muted"><i>The username is already in use. Please select a new username.</i></small>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input type="password" value="" class="form-control" id="password" aria-describedby="password">
       </div>
+      <div class="mb-3">
+        <label for="password-confirmation" class="form-label">Password Confirmation</label>
+        <input type="password" value="" class="form-control" id="password-confirmation" aria-describedby="password-confirmation">
+        <small id="password-match" class="form-text text-muted"><i>The passwords do not match. Please select a new password.</i></small>
+      </div>
+      <div class="mb-3">
       <button type="submit" id="submit" class="btn btn-primary">Register</button>
     </form>
     </div>
