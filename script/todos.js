@@ -35,38 +35,42 @@ function fetchUsers(dropdown) {
 }
 
 function fetchUserData(event) {
-    //Get the Selected User ID
+    // Get the Selected User ID
     let userId = event.target.value;
 
     let container = document.getElementById('container');
     container.innerHTML = '';
 
-    //Get Request to the Todos API (based on the UserID)
+    // Get Request to the Todos API (based on the UserID)
     fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
-        //Convert the response to JSON
+        // Convert the response to JSON
         .then(response => response.json())
-        //Get the data
+        // Get the data
         .then(data => {
-            //Loop through the data (For Each Task)
+            // Loop through the data (For Each Task)
             data.forEach((task) => {
                 let card = document.createElement('div');
-                card.classList.add('col-lg-4'); // Bootstrap grid column class
+                card.classList.add('col-lg-3', 'col-md-6', 'col-sm-12'); // Bootstrap grid column classes
                 card.innerHTML = `
                     <div class="card mb-3" style="width: 18rem;">
-                        <div class="card-body" style="height: 100%;">
-                            <h5 class="card-title">Task</h5>
-                            <p class="card-text">Category: ${task.category}</p>
-                            <p class="card-text">Description: ${task.description}</p>
-                            <p class="card-text">Deadline: ${task.deadline}</p>
-                            <p class="card-text">Priority: ${task.priority}</p>
-                            <p class="card-text">${task.completed ? "Completed: &#10003;" : "Completed: &#10008;"}</p>
+                        <div class="card-body front">
+                            <h3 class="card-title" id="header-title">Task</h3>
+                            <p class="card-text" id="quote">${task.description}</p>
+                            <p class="card-text" id="quote-two">&#128197; Deadline: ${task.deadline}</p>
+                            <button class="btn btn-secondary" id="btn-details" onclick="flipCard(this)">More Details</button>
+                        </div>
+                        <div class="card-body back" style="display: none;">
+                            <p class="card-text" id="category">Category: ${task.category}</p>
+                            <p class="card-text" id="priority">&#9873; Priority: ${task.priority}</p>
+                            <p class="card-text" id="completed">${task.completed ? "Completed: &#10003;" : "Completed: &#10008;"}</p>
+                            <button class="btn btn-secondary" id="btn-more-details" onclick="flipCard(this)">Back</button>
                         </div>
                     </div>
                 `;
                 container.appendChild(card);
             });
             setEqualCardHeight();
-        })
+        });
 }
 
 function setEqualCardHeight() {
@@ -91,4 +95,18 @@ function setEqualCardHeight() {
             body.style.height = maxHeight + 'px';
         });
     });
+}
+
+function flipCard(button) {
+    let card = button.closest('.card');
+    let cardFront = card.querySelector('.front');
+    let cardBack = card.querySelector('.back');
+    
+    if (cardFront.style.display === 'none') {
+        cardFront.style.display = 'block';
+        cardBack.style.display = 'none';
+    } else {
+        cardFront.style.display = 'none';
+        cardBack.style.display = 'block';
+    }
 }

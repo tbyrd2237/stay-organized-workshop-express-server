@@ -1,19 +1,5 @@
-  
-  /* .card {
-    width: calc(33.33% - 20px); /* Set the width of each card to one-third of the container width */
-  /* }  */
-
-
-  /* Example styling for card title */
-  .card h2 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 10px;
-  }
-
-
   /* Media Query for Phones*/
-  @media only screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     .image {
       display: none;
     }
@@ -33,23 +19,106 @@
       padding-bottom: 2%;
     }
 
-    .card {
+    /* .card {
       width: 100%; /* Set the width of each card to 100% for mobile */
-      background-color: #fff; /* Add a background color */
-      border-radius: 8px; /* Add rounded corners */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-      padding: 20px; /* Adjust padding as needed */
-      margin-bottom: 20px; /* Add margin bottom to create space between cards */
-    }
+      /* background-color: #fff; /* Add a background color */
+      /* border-radius: 8px; /* Add rounded corners */
+      /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+      /* padding: 20px; Adjust padding as needed */
+      /* margin-bottom: 20px; Add margin bottom to create space between cards */
+    /* }  */
 
   }
-  
-  /* Media query for Computers */
-  @media (min-width: 768px) {
-    .dropdown {
-      width: 70%;
-      padding-top: 1%;
-      padding-bottom: 2%; 
-      padding-left: 30%;
+
+
+    /* Media query for Computers */
+    @media (min-width: 768px) {
+
+      .card {
+        margin-left: 50%; /* Add left padding to the cards */
     }
-  }
+
+
+      .dropdown {
+        width: 70%;
+        padding-top: 1%;
+        padding-bottom: 2%; 
+        padding-left: 30%;
+      }
+
+      .card-body {
+        height: 200px; /* You can adjust the height as per your preference */
+      }
+      
+      #hidden {
+        display: none;
+      }
+      
+      /* Define CSS rules for positioning the "More Details" button */
+      .card-body-custom {
+        position: relative; /* Ensure positioning context for absolutely positioned elements */
+      }
+      
+      #btn-more-details {
+        position: center;
+        bottom: 5px; /* Adjust to reduce the space under the button */
+        left: 0; /* Position the button at the left edge of the container */
+        width: 95% !important; /* Make the button full width */
+      }
+      
+      #quote{
+        font-size: 12px;
+        font-weight: 400;
+        color: #868e94;
+        padding-left: 1%;
+        padding-bottom: 1%;
+      }
+      
+      #header-title {
+        color: rgb(116, 116, 116);
+      }
+      
+      #quote-two{
+        font-size: 12px;
+        font-weight: 500;
+        color: #868e94;
+        text-align: left;
+        padding-left: 1%;
+      }
+      
+      #btn-details{
+        position: center;
+        bottom: 0px; /* Adjust to reduce the space under the button */
+        left: 0; /* Position the button at the left edge of the container */
+        width: 95% !important; /* Make the button full width */
+      }
+
+      #category {
+        font-size: 12px;
+        font-weight: 500;
+        color: #868e94;
+        text-align: left;
+        padding-left: 1%;
+      }
+
+      #priority {
+        font-size: 12px;
+        font-weight: 500;
+        color: #868e94;
+        text-align: left;
+        padding-left: 1%;
+      }
+
+      #completed  
+      {
+        font-size: 12px;
+        font-weight: 500;
+        color: #868e94;
+        text-align: left;
+        padding-left: 1%;
+        padding-bottom: 1%;
+      }
+
+  
+    }
+  
