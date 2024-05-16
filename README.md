@@ -11,6 +11,11 @@ The "Stay Organized" application allows users to add, edit, and view To-Do items
     <code><img width="50" src="https://user-images.githubusercontent.com/25181517/183898054-b3d693d4-dafb-4808-a509-bab54cf5de34.png" alt="Bootstrap" title="Bootstrap"/></code>
 </div>
 
+
+### Interesting Code Snippet
+The provided code sample is from the Mark as Complete page. This feature allows users to mark their To-Do items as completed. Users can select a task from a dropdown menu populated with all the incomplete To-Do items and simply check a box to mark it as completed.
+![Code Sample.](/images/code-sample.jpg "This is a sample of my code.")
+
 ### Webpages
 ***Homepage***
 
@@ -31,8 +36,3 @@ The "Stay Organized" application allows users to add, edit, and view To-Do items
 ***Mark as Complete***
 
 ![Mark as Complete Screenshot.](/images/markascomplete-screenshot.jpg "This is a screenshot of the Mark as Complete page.")
-
-### Interesting Code Snippet
-The provided code sample is from the Mark as Complete page. This feature allows users to mark their To-Do items as completed. Users can select a task from a dropdown menu populated with all the incomplete To-Do items and simply check a box to mark it as completed.
-![Code Sample.](/images/code-sample.jpg "This is a sample of my code.")
-
