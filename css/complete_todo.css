@@ -14,7 +14,11 @@
   } */
 
 
-
+  .form-header {
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    color: #555;
+  }
 
 /* Media Query for Phones*/
 @media only screen and (max-width: 768px) {
@@ -54,7 +58,7 @@
   .form-box h2 {
     text-align: center; /* Center-align the heading */
     margin-bottom: 20px; /* Add some space below the heading */
-    color: #333; /* Adjust heading color */
+    color: #555; /* Adjust heading color */
   }
   
   .form-box label {

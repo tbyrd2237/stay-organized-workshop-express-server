@@ -13,7 +13,13 @@
     background-color: #f9f9f9;
   } */
 
+h3 {
+    text-align: center;
+}
+
+
 small#password-match.form-text.i {
+    display: none;
     color: red !important;
   }
 
@@ -75,5 +81,6 @@ body {
 
 .form-box button[type="submit"]:hover {
     background-color: #0056b3;
+    padding-bottom: 5%;
 }  
 

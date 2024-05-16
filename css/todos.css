@@ -1,3 +1,7 @@
+.card-text-category {
+  padding-top: 4%;
+}
+  
   /* Media Query for Phones*/
   @media (max-width: 768px) {
     .image {
@@ -37,6 +41,7 @@
     /* }  */
 
   }
+
 
 
     /* Media query for Computers */

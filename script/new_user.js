@@ -7,6 +7,10 @@ window.onload = function() {
 
     // Event Listener for Submit Form
     submitButton.addEventListener('click', submitForm);
+
+    // Initially hide the password mismatch and username taken messages
+    passwordMatchElement.style.display = 'none';
+    usernameTakenElement.style.display = 'none';
 }
 
 // Submit the Form

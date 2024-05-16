@@ -60,8 +60,8 @@ function fetchUserData(event) {
                             <button class="btn btn-secondary" id="btn-details" onclick="flipCard(this)">More Details</button>
                         </div>
                         <div class="card-body back" style="display: none;">
-                            <p class="card-text" id="category">Category: ${task.category}</p>
-                            <p class="card-text" id="priority">&#9873; Priority: ${task.priority}</p>
+                            <p class="card-text-category" id="category">Category: ${task.category}</p>
+                            <p class="card-text" id="priority">Priority: ${task.priority}</p>
                             <p class="card-text" id="completed">
                                 ${task.completed ? 'Completed: <span style="color: green;" class="completed-symbol">&#10003;</span>' : 'Completed: <span style="color: red;" class="not-completed-symbol">&#10008;</span>'}
                             </p>
@@ -76,28 +76,50 @@ function fetchUserData(event) {
 }
 
 function setEqualCardHeight() {
-    // Get all card bodies
-    let cardBodies = document.querySelectorAll('.card-body');
-    
-    // Loop through each row
-    cardBodies.forEach((cardBody, index, bodies) => {
-        // Get card bodies in the same row
-        let currentRowBodies = [];
-        let top = cardBody.offsetTop;
-        let height = cardBody.offsetHeight;
-        for (let i = index; i < bodies.length; i++) {
-            if (bodies[i].offsetTop === top) {
-                currentRowBodies.push(bodies[i]);
-            }
-        }
-        // Find the maximum height in the row
-        let maxHeight = Math.max(...currentRowBodies.map(body => body.offsetHeight));
-        // Set the same height for all card bodies in the row
-        currentRowBodies.forEach(body => {
-            body.style.height = maxHeight + 'px';
-        });
+    // Get all cards
+    let cards = document.querySelectorAll('.card');
+
+    // Loop through each card
+    cards.forEach(card => {
+        // Reset card height to auto
+        card.style.height = 'auto';
+
+        // Get card front and back
+        let cardFront = card.querySelector('.front');
+        let cardBack = card.querySelector('.back');
+
+        // Get the maximum height between front and back
+        let maxHeight = Math.max(cardFront.offsetHeight, cardBack.offsetHeight);
+
+        // Set the same height for both front and back
+        cardFront.style.height = maxHeight + 'px';
+        cardBack.style.height = maxHeight + 'px';
     });
 }
+
+// function setEqualCardHeight() {
+//     // Get all card bodies
+//     let cardBodies = document.querySelectorAll('.card-body');
+    
+//     // Loop through each row
+//     cardBodies.forEach((cardBody, index, bodies) => {
+//         // Get card bodies in the same row
+//         let currentRowBodies = [];
+//         let top = cardBody.offsetTop;
+//         let height = cardBody.offsetHeight;
+//         for (let i = index; i < bodies.length; i++) {
+//             if (bodies[i].offsetTop === top) {
+//                 currentRowBodies.push(bodies[i]);
+//             }
+//         }
+//         // Find the maximum height in the row
+//         let maxHeight = Math.max(...currentRowBodies.map(body => body.offsetHeight));
+//         // Set the same height for all card bodies in the row
+//         currentRowBodies.forEach(body => {
+//             body.style.height = maxHeight + 'px';
+//         });
+//     });
+// }
 
 function flipCard(button) {
     let card = button.closest('.card');
