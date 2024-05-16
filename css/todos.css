@@ -1,7 +1,25 @@
 .card-text-category {
   padding-top: 4%;
 }
-  
+
+.star{
+  font-size: 30px; /* Adjust the size as per your preference */
+  padding-right: 3%;
+} 
+.red-arrow {
+  color: red;
+}
+
+.yellow-arrow {
+  color: rgb(228, 228, 54);
+}
+
+.green-arrow {
+  color: green;
+}
+/* span {
+  /* padding-left: 63%; */
+
   /* Media Query for Phones*/
   @media (max-width: 768px) {
     .image {
@@ -41,7 +59,6 @@
     /* }  */
 
   }
-
 
 
     /* Media query for Computers */
@@ -131,7 +148,4 @@
         padding-left: 1%;
         padding-bottom: 1%;
       }
-
-  
     }
-  
