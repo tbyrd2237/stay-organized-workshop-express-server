@@ -19,6 +19,14 @@
       padding-bottom: 2%;
     }
 
+    .completed-symbol {
+      color: green; /* Change this to your desired color for completed tasks */
+  }
+  
+  .not-completed-symbol {
+      color: red; /* Change this to your desired color for not completed tasks */
+  }
+
     /* .card {
       width: 100%; /* Set the width of each card to 100% for mobile */
       /* background-color: #fff; /* Add a background color */

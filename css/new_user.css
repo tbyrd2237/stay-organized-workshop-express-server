@@ -13,6 +13,10 @@
     background-color: #f9f9f9;
   } */
 
+small#password-match.form-text.i {
+    color: red !important;
+  }
+
 .container {
     width: 100%;
     display: flex;
@@ -72,3 +76,4 @@ body {
 .form-box button[type="submit"]:hover {
     background-color: #0056b3;
 }  
+

@@ -56,13 +56,15 @@ function fetchUserData(event) {
                         <div class="card-body front">
                             <h3 class="card-title" id="header-title">Task</h3>
                             <p class="card-text" id="quote">${task.description}</p>
-                            <p class="card-text" id="quote-two">&#128197; Deadline: ${task.deadline}</p>
+                            <p class="card-text" id="quote-two">&#128197; Deadline:<b> ${task.deadline}</p>
                             <button class="btn btn-secondary" id="btn-details" onclick="flipCard(this)">More Details</button>
                         </div>
                         <div class="card-body back" style="display: none;">
                             <p class="card-text" id="category">Category: ${task.category}</p>
                             <p class="card-text" id="priority">&#9873; Priority: ${task.priority}</p>
-                            <p class="card-text" id="completed">${task.completed ? "Completed: &#10003;" : "Completed: &#10008;"}</p>
+                            <p class="card-text" id="completed">
+                                ${task.completed ? 'Completed: <span style="color: green;" class="completed-symbol">&#10003;</span>' : 'Completed: <span style="color: red;" class="not-completed-symbol">&#10008;</span>'}
+                            </p>
                             <button class="btn btn-secondary" id="btn-more-details" onclick="flipCard(this)">Back</button>
                         </div>
                     </div>
