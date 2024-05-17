@@ -45,8 +45,6 @@ function submitForm(event) {
         })
         .then(response => response.json())
         .then(json => {
-            console.log("Json: " + json);
-            console.log("The Put was Successful");
             window.location.reload();
         })
         .catch(err => {

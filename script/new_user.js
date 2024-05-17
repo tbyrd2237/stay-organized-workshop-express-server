@@ -1,40 +1,35 @@
 window.onload = function() {
-    // Initially hide the password mismatch message
     document.getElementById('password-match').style.display = 'none';
     document.getElementById('username-taken').style.display = 'none';
     
     let submitButton = document.getElementById('submit');
 
-    // Event Listener for Submit Form
+
     submitButton.addEventListener('click', submitForm);
 
-    // Initially hide the password mismatch and username taken messages
+
     passwordMatchElement.style.display = 'none';
     usernameTakenElement.style.display = 'none';
 }
 
-// Submit the Form
+
 function submitForm(event) {
     event.preventDefault();
     
-    // Retrieve values from input fields
     let name = document.getElementById('user-name').value;
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('password-confirmation').value;
-    // Get the element for displaying password mismatch message
+
     let passwordMatchElement = document.getElementById('password-match');
     let usernameTakenElement = document.getElementById('username-taken');
 
     
-    // Check if passwords match
     if (password !== confirmPassword) {
-        // Show the password mismatch message
         passwordMatchElement.style.display = 'block';
         return;
     }
     
-    // Check username availability
     fetch(`http://localhost:8083/api/username_available/${username}`)
         .then(response => response.text())
         .then(data => {
@@ -61,12 +56,12 @@ function submitForm(event) {
                     if (!response.ok) {
                         throw new Error("Failed to add user. Please try again later.");
                     }
-                    // Clear form fields after successful submission
+              
                     document.getElementById('user-name').value = '';
                     document.getElementById('username').value = '';
                     document.getElementById('password').value = '';
                     document.getElementById('password-confirmation').value = '';
-                    // Hide any error messages
+
                     passwordMatchElement.style.display = 'none';
                     usernameTakenElement.style.display = 'none';
                     return response.json();

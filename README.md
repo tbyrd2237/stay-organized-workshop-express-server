@@ -17,22 +17,23 @@ The provided code sample is from the Mark as Complete page. This feature allows 
 ![Code Sample.](/images/code-sample.jpg "This is a sample of my code.")
 
 ### Webpages
-***Homepage***
+
+*Homepage*
 
 ![Homepage Screenshot.](/images/homepage-screenshot.jpg "This is a screenshot of the homepage.")
 
-***Todos***
+*Todos*
 
-![Todos Screenshot.](/images/todos-screenshot.jpg "This is a screenshot of the Todos page.")
+![Todos Screenshot.](/images/todos-page.jpg "This is a screenshot of the Todos page.")
 
-***New Todo***
+*New Todo*
 
-![New Todo Screenshot.](/images/newtodo-screenshot.jpg "This is a screenshot of the New ToDo page.")
+![New Todo Screenshot.](/images/register-new-user.jpg "This is a screenshot of the New ToDo page.")
 
-***New User***
+*New User*
 
-![New User Screenshot.](/images/newuser-screenshot.jpg "This is a screenshot of the New User page.")
+![New User Screenshot.](/images/new-user.jpg "This is a screenshot of the New User page.")
 
 ***Mark as Complete***
 
-![Mark as Complete Screenshot.](/images/markascomplete-screenshot.jpg "This is a screenshot of the Mark as Complete page.")
+![Mark as Complete Screenshot.](/images/mark-as-complete.jpg "This is a screenshot of the Mark as Complete page.")

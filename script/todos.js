@@ -49,6 +49,11 @@ fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
 .then(data => {
     // Loop through the data (For Each Task)
     data.forEach((task) => {
+        const deadlineDate = new Date(task.deadline);
+        // Format the date in the desired format
+        
+        const formattedDate = deadlineDate.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
         let card = document.createElement('div');
         card.classList.add('col-lg-3', 'col-md-6', 'col-sm-12'); // Bootstrap grid column classes
         card.innerHTML = `
@@ -56,7 +61,7 @@ fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
         <div class="card-body front">
             <h3 class="card-title" id="header-title"><span class="star ${getPriorityArrowClass(task.priority)}">&#10095;</span>Task</h3>
             <p class="card-text" id="quote">${task.description}</p>
-            <p class="card-text" id="quote-two">&#128197; Deadline:<b> ${task.deadline}</b></p>
+            <p class="card-text" id="quote-two">&#128197;  Deadline: ${formattedDate}</p>
             <button class="btn btn-secondary" id="btn-details" onclick="flipCard(this)">More Details</button>
         </div>
         <div class="card-body back" style="display: none;">
@@ -75,7 +80,6 @@ fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
 });
 }
 
-//Function to determine priority class
 function getPriorityClass(priority) {
     switch(priority) {
         case 'high':
@@ -105,47 +109,6 @@ function getPriorityArrowClass(priority) {
             return '';
     }
 }
-
-// function fetchUserData(event) {
-//     // Get the Selected User ID
-//     let userId = event.target.value;
-
-//     let container = document.getElementById('container');
-//     container.innerHTML = '';
-
-//     // Get Request to the Todos API (based on the UserID)
-//     fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
-//         // Convert the response to JSON
-//         .then(response => response.json())
-//         // Get the data
-//         .then(data => {
-//             // Loop through the data (For Each Task)
-//             data.forEach((task) => {
-//                 let card = document.createElement('div');
-//                 card.classList.add('col-lg-3', 'col-md-6', 'col-sm-12'); // Bootstrap grid column classes
-//                 card.innerHTML = `
-//                 <div class="card mb-3" style="width: 18rem;">
-//                     <div class="card-body front">
-//                         <h3 class="card-title" id="header-title"><span class="star">&#10095;</span>Task</h3>
-//                         <p class="card-text" id="quote">${task.description}</p>
-//                         <p class="card-text" id="quote-two">&#128197; Deadline:<b> ${task.deadline}</b></p>
-//                         <button class="btn btn-secondary" id="btn-details" onclick="flipCard(this)">More Details</button>
-//                     </div>
-//                     <div class="card-body back" style="display: none;">
-//                         <p class="card-text-category" id="category">Category: ${task.category}</p>
-//                         <p class="card-text" id="priority">Priority: ${task.priority}</p>
-//                         <p class="card-text" id="completed">
-//                             ${task.completed ? 'Completed: <span style="color: green;" class="completed-symbol">&#10003;</span>' : 'Completed: <span style="color: red;" class="not-completed-symbol">&#10008;</span>'}
-//                         </p>
-//                         <button class="btn btn-secondary" id="btn-more-details" onclick="flipCard(this)">Back</button>
-//                     </div>
-//                 </div>
-//             `;
-//                 container.appendChild(card);
-//             });
-//             setEqualCardHeight();
-//         });
-// }
 
 function setEqualCardHeight() {
     // Get all cards
