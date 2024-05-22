@@ -1,18 +1,3 @@
-/* .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .form-box {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 10px;
-    width: 400px;
-    background-color: #f9f9f9;
-  } */
-
 h3 {
     text-align: center;
 }
@@ -21,7 +6,7 @@ h3 {
 small#password-match.form-text.i {
     display: none;
     color: red !important;
-  }
+}
 
 .container {
     width: 100%;
@@ -36,7 +21,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0; /* Adjust background color */
+    background-color: #f0f0f0;
 }
 
 .form-box {
@@ -46,7 +31,7 @@ body {
     max-width: 400px;
     width: 100%;
     background-color: #f9f9f9;
-    margin: 0 auto; /* Center horizontally */
+    margin: 0 auto;
 }
 
 .form-box h2 {
@@ -67,7 +52,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-} 
+}
 
 .form-box button[type="submit"] {
     width: 100%;
@@ -82,5 +67,4 @@ body {
 .form-box button[type="submit"]:hover {
     background-color: #0056b3;
     padding-bottom: 5%;
-}  
-
+}

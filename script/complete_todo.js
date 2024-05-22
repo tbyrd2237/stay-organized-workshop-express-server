@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     let dropdownToDos = document.getElementById('dropdown-todos');
     let submitToDoButton = document.getElementById('submit');
 
@@ -37,12 +37,12 @@ function submitForm(event) {
     let endpointUrl = `http://localhost:8083/api/todos/${selectedId}`;
 
     fetch(endpointUrl, {
-            method: "PUT",
-            body: JSON.stringify(bodyData),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+        method: "PUT",
+        body: JSON.stringify(bodyData),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .then(response => response.json())
         .then(json => {
             window.location.reload();

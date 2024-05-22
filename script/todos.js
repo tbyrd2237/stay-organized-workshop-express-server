@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     let dropdown = document.getElementById('dropdown-menu');
     dropdown.addEventListener('change', fetchUserData);
 
@@ -25,16 +25,16 @@ function fetchUserData(event) {
     container.innerHTML = '';
 
 
-fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
-.then(response => response.json())
-.then(data => {
-    data.forEach((task) => {
-        const deadlineDate = new Date(task.deadline);      
-        const formattedDate = deadlineDate.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach((task) => {
+                const deadlineDate = new Date(task.deadline);
+                const formattedDate = deadlineDate.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
-        let card = document.createElement('div');
-        card.classList.add('col-lg-3', 'col-md-6', 'col-sm-12'); 
-        card.innerHTML = `
+                let card = document.createElement('div');
+                card.classList.add('col-lg-3', 'col-md-6', 'col-sm-12');
+                card.innerHTML = `
         <div class="card mb-3" style="width: 18rem;">
         <div class="card-body front">
             <h3 class="card-title" id="header-title"><span class="star ${getPriorityArrowClass(task.priority)}">&#10095;</span>Task</h3>
@@ -52,14 +52,14 @@ fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
         </div>
         </div>
     `;
-        container.appendChild(card);
-    });
-    setEqualCardHeight();
-});
+                container.appendChild(card);
+            });
+            setEqualCardHeight();
+        });
 }
 
 function getPriorityClass(priority) {
-    switch(priority) {
+    switch (priority) {
         case 'high':
             return 'red';
         case 'medium':
@@ -72,7 +72,7 @@ function getPriorityClass(priority) {
 }
 
 function getPriorityArrowClass(priority) {
-    switch(priority) {
+    switch (priority) {
         case 'High':
             console.log('high');
             return 'red-arrow';
@@ -108,7 +108,7 @@ function flipCard(button) {
     let card = button.closest('.card');
     let cardFront = card.querySelector('.front');
     let cardBack = card.querySelector('.back');
-    
+
     if (cardFront.style.display === 'none') {
         cardFront.style.display = 'block';
         cardBack.style.display = 'none';
