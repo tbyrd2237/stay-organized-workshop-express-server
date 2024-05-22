@@ -1,61 +1,39 @@
 window.onload = function() {
-    //Get the Dropdown Menu
     let dropdown = document.getElementById('dropdown-menu');
-
-    //Add an Event Listener to the Dropdown Menu
     dropdown.addEventListener('change', fetchUserData);
 
-    //Fetch the Users
     fetchUsers(dropdown);
 }
 
-// Function to Fetch the Users
 function fetchUsers(dropdown) {
-    //Get Request to the Users API
     fetch('http://localhost:8083/api/users')
-        //Convert the response to JSON
         .then(response => response.json())
-        //Get the data
         .then(data => {
-            //Loop through the data
             data.forEach((user) => {
-                //Create an Option Element
                 let option = document.createElement('option');
-
-                //Add Each Name to the Drop Down Menu (user.name)
                 option.innerHTML = user.name;
-
-                //Add Each ID to the Value Property (user.id)
                 option.value = user.id;
 
-                //Append the Option to the Dropdown Menu
                 dropdown.appendChild(option);
             });
         });
 }
 
 function fetchUserData(event) {
-//     // Get the Selected User ID
     let userId = event.target.value;
-
     let container = document.getElementById('container');
     container.innerHTML = '';
 
-/// Get Request to the Todos API (based on the UserID)
+
 fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
-// Convert the response to JSON
 .then(response => response.json())
-// Get the data
 .then(data => {
-    // Loop through the data (For Each Task)
     data.forEach((task) => {
-        const deadlineDate = new Date(task.deadline);
-        // Format the date in the desired format
-        
+        const deadlineDate = new Date(task.deadline);      
         const formattedDate = deadlineDate.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
         let card = document.createElement('div');
-        card.classList.add('col-lg-3', 'col-md-6', 'col-sm-12'); // Bootstrap grid column classes
+        card.classList.add('col-lg-3', 'col-md-6', 'col-sm-12'); 
         card.innerHTML = `
         <div class="card mb-3" style="width: 18rem;">
         <div class="card-body front">
@@ -111,50 +89,20 @@ function getPriorityArrowClass(priority) {
 }
 
 function setEqualCardHeight() {
-    // Get all cards
     let cards = document.querySelectorAll('.card');
 
-    // Loop through each card
     cards.forEach(card => {
-        // Reset card height to auto
         card.style.height = 'auto';
 
-        // Get card front and back
         let cardFront = card.querySelector('.front');
         let cardBack = card.querySelector('.back');
 
-        // Get the maximum height between front and back
         let maxHeight = Math.max(cardFront.offsetHeight, cardBack.offsetHeight);
 
-        // Set the same height for both front and back
         cardFront.style.height = maxHeight + 'px';
         cardBack.style.height = maxHeight + 'px';
     });
 }
-
-// function setEqualCardHeight() {
-//     // Get all card bodies
-//     let cardBodies = document.querySelectorAll('.card-body');
-    
-//     // Loop through each row
-//     cardBodies.forEach((cardBody, index, bodies) => {
-//         // Get card bodies in the same row
-//         let currentRowBodies = [];
-//         let top = cardBody.offsetTop;
-//         let height = cardBody.offsetHeight;
-//         for (let i = index; i < bodies.length; i++) {
-//             if (bodies[i].offsetTop === top) {
-//                 currentRowBodies.push(bodies[i]);
-//             }
-//         }
-//         // Find the maximum height in the row
-//         let maxHeight = Math.max(...currentRowBodies.map(body => body.offsetHeight));
-//         // Set the same height for all card bodies in the row
-//         currentRowBodies.forEach(body => {
-//             body.style.height = maxHeight + 'px';
-//         });
-//     });
-// }
 
 function flipCard(button) {
     let card = button.closest('.card');
